@@ -1,3 +1,4 @@
+#!/bin/bash;
 import { add } from "./add.js";
 import { subtract } from "./subtract.js";
 import { multiply } from "./multiply.js";
@@ -52,7 +53,7 @@ if (answer.operator === "+") {
     console.log(chalk.cyanBright(`The answer by dividing ${answer.num1} and ${answer.num2} is ${divresult}`));
 
 } else {
-
+    
     console.log(chalk.bgRedBright("Invalid operator"));
 
 }
