@@ -1,11 +1,11 @@
 {
-  "name": "calculator",
+  "name": "@muhammadobaidullah/calculator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "calculator":"calculator.ts"
+    "calculator":"calculator.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
