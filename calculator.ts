@@ -1,4 +1,4 @@
-#!/bin/bash;
+`#! /usr/bin/env node`;
 import { add } from "./add.js";
 import { subtract } from "./subtract.js";
 import { multiply } from "./multiply.js";
