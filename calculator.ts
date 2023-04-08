@@ -3,9 +3,8 @@ import { add } from "./add.js";
 import { subtract } from "./subtract.js";
 import { multiply } from "./multiply.js";
 import { divide } from "./divide.js";
-
+import { square } from "./square.js";
 import inquirer from "inquirer";
-
 import chalk from "chalk";
 
 let answer = await inquirer.prompt(
@@ -17,44 +16,64 @@ let answer = await inquirer.prompt(
         },
         {
             name: "operator",
-            type: "operator",
+            type: "list",
+            choices: ["Add +", "Subtract -", "Multiply *", "Divide /", "Square **"],
             message: chalk.blueBright("Enter required operator")
         },
-        {
-            name: "num2",
-            type: "number",
-            message: chalk.greenBright("Enter second number")
-        }
+
     ]
-);
+)
 
-if (answer.operator === "+") {
+if (answer.operator === "Square **") {
 
-    let addresult = add(answer.num1, answer.num2);
+    let sqresult = square(answer.num1);
 
-    console.log(chalk.yellow(`The answer by adding ${answer.num1} and ${answer.num2} is ${addresult}`));
-
-} else if (answer.operator === "-") {
-
-    let subresult = subtract(answer.num1, answer.num2);
-
-    console.log(chalk.green(`The answer by subtracting ${answer.num1} and ${answer.num2} is ${subresult}`));
-
-} else if (answer.operator === "*") {
-
-    let multiresult = multiply(answer.num1, answer.num2);
-
-    console.log(chalk.magenta(`The answer by multiplying ${answer.num1} and ${answer.num2} is ${multiresult}`));
-
-} else if (answer.operator === "/") {
-
-    let divresult = divide(answer.num1, answer.num2);
-
-    console.log(chalk.cyanBright(`The answer by dividing ${answer.num1} and ${answer.num2} is ${divresult}`));
-
-} else {
-    
-    console.log(chalk.bgRedBright("Invalid operator"));
+    console.log(chalk.yellowBright(`The square of ${answer.num1} is ${sqresult}`));
 
 }
+
+else {
+    let answer2 = await inquirer.prompt(
+        [
+            {
+                name: "num2",
+                type: "number",
+                message: chalk.greenBright("Enter second number")
+            }
+        ]
+    )
+    if (answer.operator === "Add +") {
+
+        let addresult = add(answer.num1, answer2.num2);
+
+        console.log(chalk.yellow(`The answer by adding ${answer.num1} and ${answer2.num2} is ${addresult}`));
+
+    } else if (answer.operator === "Subtract -") {
+
+        let subresult = subtract(answer.num1, answer2.num2);
+
+        console.log(chalk.green(`The answer by subtracting ${answer.num1} and ${answer2.num2} is ${subresult}`));
+
+    } else if (answer.operator === "Multiply *") {
+
+        let multiresult = multiply(answer.num1, answer2.num2);
+
+        console.log(chalk.magenta(`The answer by multiplying ${answer.num1} and ${answer2.num2} is ${multiresult}`));
+
+    } else if (answer.operator === "Divide /") {
+
+        let divresult = divide(answer.num1, answer2.num2);
+
+        console.log(chalk.cyanBright(`The answer by dividing ${answer.num1} and ${answer2.num2} is ${divresult}`));
+
+    } else {
+
+        console.log(chalk.bgRedBright("Invalid operator"));
+
+    }
+}
+
+
+
+
 
