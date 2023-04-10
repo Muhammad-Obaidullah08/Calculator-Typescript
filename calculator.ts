@@ -4,6 +4,7 @@ import { subtract } from "./subtract.js";
 import { multiply } from "./multiply.js";
 import { divide } from "./divide.js";
 import { square } from "./square.js";
+import { sqroot } from "./sqroot.js";
 import inquirer from "inquirer";
 import chalk from "chalk";
 
@@ -17,7 +18,7 @@ let answer = await inquirer.prompt(
         {
             name: "operator",
             type: "list",
-            choices: ["Add +", "Subtract -", "Multiply *", "Divide /", "Square **"],
+            choices: ["Add +", "Subtract -", "Multiply *", "Divide /", "Square **","Square Root ***"],
             message: chalk.blueBright("Enter required operator")
         },
 
@@ -29,6 +30,12 @@ if (answer.operator === "Square **") {
     let sqresult = square(answer.num1);
 
     console.log(chalk.yellowBright(`The square of ${answer.num1} is ${sqresult}`));
+
+} else if (answer.operator === "Square Root ***") {
+
+    let sqrootresult = sqroot(answer.num1);
+
+    console.log(chalk.magentaBright(`The square root of ${answer.num1} is ${sqrootresult}`));
 
 }
 
@@ -72,8 +79,6 @@ else {
 
     }
 }
-
-
 
 
 
