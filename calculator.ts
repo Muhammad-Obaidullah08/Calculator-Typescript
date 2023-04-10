@@ -4,9 +4,11 @@ import { subtract } from "./subtract.js";
 import { multiply } from "./multiply.js";
 import { divide } from "./divide.js";
 import { square } from "./square.js";
+import { sqroot } from "./sqroot.js";
 import inquirer from "inquirer";
 import chalk from "chalk";
 
+<<<<<<< HEAD
 let answer = await inquirer.prompt([
     {
         name: "num1",
@@ -20,10 +22,29 @@ let answer = await inquirer.prompt([
         message: chalk.blueBright("Enter required operator"),
     },
 ]);
+=======
+let answer = await inquirer.prompt(
+    [
+        {
+            name: "num1",
+            type: "number",
+            message: chalk.greenBright("Enter first number")
+        },
+        {
+            name: "operator",
+            type: "list",
+            choices: ["Add +", "Subtract -", "Multiply *", "Divide /", "Square **","Square Root ***"],
+            message: chalk.blueBright("Enter required operator")
+        },
+
+    ]
+)
+>>>>>>> root-dev
 
 if (answer.operator === "Square **") {
     let sqresult = square(answer.num1);
 
+<<<<<<< HEAD
     console.log(
         chalk.yellowBright(`The square of ${answer.num1} is ${sqresult}`)
     );
@@ -35,6 +56,28 @@ if (answer.operator === "Square **") {
             message: chalk.greenBright("Enter second number"),
         },
     ]);
+=======
+    console.log(chalk.yellowBright(`The square of ${answer.num1} is ${sqresult}`));
+
+} else if (answer.operator === "Square Root ***") {
+
+    let sqrootresult = sqroot(answer.num1);
+
+    console.log(chalk.magentaBright(`The square root of ${answer.num1} is ${sqrootresult}`));
+
+}
+
+else {
+    let answer2 = await inquirer.prompt(
+        [
+            {
+                name: "num2",
+                type: "number",
+                message: chalk.greenBright("Enter second number")
+            }
+        ]
+    )
+>>>>>>> root-dev
     if (answer.operator === "Add +") {
         let addresult = add(answer.num1, answer2.num2);
 
@@ -71,3 +114,9 @@ if (answer.operator === "Square **") {
         console.log(chalk.bgRedBright("Invalid operator"));
     }
 }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> root-dev
