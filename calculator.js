@@ -5,6 +5,7 @@ import { multiply } from "./multiply.js";
 import { divide } from "./divide.js";
 import { square } from "./square.js";
 import { sqroot } from "./sqroot.js";
+import { exponent } from "./exponent.js";
 import inquirer from "inquirer";
 import chalk from "chalk";
 let answer = await inquirer.prompt([
@@ -16,7 +17,7 @@ let answer = await inquirer.prompt([
     {
         name: "operator",
         type: "list",
-        choices: ["Add +", "Subtract -", "Multiply *", "Divide /", "Square **", "Square Root ***"],
+        choices: ["Add +", "Subtract -", "Multiply *", "Divide /", "Square **", "Square Root ***", "Exponent ^"],
         message: chalk.blueBright("Enter required operator")
     },
 ]);
@@ -51,6 +52,10 @@ else {
     else if (answer.operator === "Divide /") {
         let divresult = divide(answer.num1, answer2.num2);
         console.log(chalk.cyanBright(`The answer by dividing ${answer.num1} and ${answer2.num2} is ${divresult}`));
+    }
+    else if (answer.operator === "Exponent ^") {
+        let expresult = exponent(answer.num1, answer2.num2);
+        console.log(chalk.hex('#45fc03')(`The result of raising ${answer.num1} to the power ${answer2.num2} is ${expresult}`));
     }
     else {
         console.log(chalk.bgRedBright("Invalid operator"));
