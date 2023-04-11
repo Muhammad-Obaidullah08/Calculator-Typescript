@@ -65,7 +65,7 @@ else {
     }
     else if (answer.operator === "Percent %") {
         let perresult = percent(answer.num1, answer2.num2);
-        console.log(chalk.hex('#DEADED')(`${answer2.num2} % percent of  ${answer.num1} is ${perresult}`));
+        console.log(chalk.hex('#DEADED')(`${answer2.num2} % percent of ${answer.num1} is ${perresult}`));
     }
     else {
         console.log(chalk.bgRedBright("Invalid operator"));
