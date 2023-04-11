@@ -6,6 +6,8 @@ import { divide } from "./divide.js";
 import { square } from "./square.js";
 import { sqroot } from "./sqroot.js";
 import { exponent } from "./exponent.js";
+import { percentAge } from "./percentage.js";
+import { percent } from "./percentage.js";
 import inquirer from "inquirer";
 import chalk from "chalk";
 let answer = await inquirer.prompt([
@@ -17,7 +19,7 @@ let answer = await inquirer.prompt([
     {
         name: "operator",
         type: "list",
-        choices: ["Add +", "Subtract -", "Multiply *", "Divide /", "Square **", "Square Root ***", "Exponent ^"],
+        choices: ["Add +", "Subtract -", "Multiply *", "Divide /", "Square **", "Square Root **", "Exponent ^", "Percentage %", "Percent %"],
         message: chalk.blueBright("Enter required operator")
     },
 ]);
@@ -56,6 +58,14 @@ else {
     else if (answer.operator === "Exponent ^") {
         let expresult = exponent(answer.num1, answer2.num2);
         console.log(chalk.hex('#45fc03')(`The result of raising ${answer.num1} to the power ${answer2.num2} is ${expresult}`));
+    }
+    else if (answer.operator === "Percentage %") {
+        let pcentresult = percentAge(answer.num1, answer2.num2);
+        console.log(chalk.hex('#95oc89')(`The percentage of ${answer.num1} in ${answer2.num2} is ${pcentresult} %`));
+    }
+    else if (answer.operator === "Percent %") {
+        let perresult = percent(answer.num1, answer2.num2);
+        console.log(chalk.hex('#DEADED')(`${answer2.num2} % percent of  ${answer.num1} is ${perresult}`));
     }
     else {
         console.log(chalk.bgRedBright("Invalid operator"));
