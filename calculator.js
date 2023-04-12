@@ -10,17 +10,19 @@ import { percentAge } from "./percentage.js";
 import { percent } from "./percentage.js";
 import inquirer from "inquirer";
 import chalk from "chalk";
+console.log(chalk.hex('#dbeb34')("The 'percentage %' operator will calculate the percentage of number 1 in number 2"));
+console.log(chalk.hex('#dbeb34')("The 'percent %' operator will calculate the required percentage (number 2) of number 1"));
 let answer = await inquirer.prompt([
     {
         name: "num1",
         type: "number",
-        message: chalk.greenBright("Enter first number")
+        message: chalk.hex('#DEADED')("Enter first number")
     },
     {
         name: "operator",
         type: "list",
-        choices: ["Add +", "Subtract -", "Multiply *", "Divide /", "Square **", "Square Root **", "Exponent ^", "Percentage %", "Percent %"],
-        message: chalk.blueBright("Enter required operator")
+        choices: ["Add +", "Subtract -", "Multiply *", "Divide /", "Square **", "Square Root ***", "Exponent ^", "Percentage %", "Percent %"],
+        message: chalk.hex('#eb8634')("Enter required operator")
     },
 ]);
 if (answer.operator === "Square **") {
@@ -36,7 +38,7 @@ else {
         {
             name: "num2",
             type: "number",
-            message: chalk.greenBright("Enter second number")
+            message: chalk.hex('#eb3477')("Enter second number")
         }
     ]);
     if (answer.operator === "Add +") {
